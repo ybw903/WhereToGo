@@ -9,7 +9,7 @@ export default function Header() {
     }
 
     return(
-        <header className={styles.header}>
+        <header>
             <nav className={styles.navbar}>
                 <div className={styles.navbar__title}>
                     <a>여기저기로</a>
