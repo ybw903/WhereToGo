@@ -1,6 +1,6 @@
 import TourCalender from "../src/components/TourCalender";
 
-export default function Schedule() {
+export default function Schedules() {
     return (
         <div>
             <div>

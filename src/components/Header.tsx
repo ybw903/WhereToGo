@@ -13,15 +13,21 @@ export default function Header() {
         <header>
             <nav className={styles.navbar}>
                 <div className={styles.navbar__title}>
-                    <a>여기저기로</a>
+                    <Link href="/"><a>어디로</a></Link>
                 </div>
                 <ul className= {!isMenuOpen? styles.navbar__menu : `${styles.navbar__menu} ${styles.active}`}>
-                    <li><a>여행지 둘러보기</a></li>
                     <li>
-                        <Link href="schedule"><a>여행 일정 등록</a></Link>
+                        <Link href="/places"><a>여행지 둘러보기</a></Link>
                     </li>
-                    <li><a>여행 후기</a></li>
-                    <li><a>MyProfile</a></li>
+                    <li>
+                        <Link href="/schedules"><a>여행 일정 등록</a></Link>
+                    </li>
+                    <li>
+                        <Link href="/reviews"><a>여행 후기</a></Link>
+                    </li>
+                    <li>
+                        <Link href="/profile"><a>My profile</a></Link>
+                    </li>
                 </ul>
                 <div className={styles.navbar__toggleBtn} onClick={menuClickEventHandler}>
                     햄버거
