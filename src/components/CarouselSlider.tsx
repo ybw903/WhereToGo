@@ -1,8 +1,14 @@
 import { ImageInfo } from "../type";
 import styles from '../../styles/Carousel.module.css'
 
-export default function CarouselSlider(imagesInfo: ImageInfo[]) {
+interface iProps {
+    imagesInfo: ImageInfo[],
+} 
+
+export default function CarouselSlider({imagesInfo}: iProps) {
+
     return(
+        
         <div className={styles.carousel}>
             {imagesInfo.map((imageInfo,idx) => 
                 <div key={idx}>

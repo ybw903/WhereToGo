@@ -11,8 +11,8 @@ interface iProps {
 export default function Carousel({imagesInfo, title}: iProps) {
     return(
         <div className={styles.carousel}>
-            <CarouselHeader {...title}/>
-            <CarouselSlider {...imagesInfo}/>
+            <CarouselHeader title={title}/>
+            <CarouselSlider imagesInfo={...imagesInfo}/>
         </div>
     )   
 }

@@ -1,4 +1,9 @@
-export default function CarouselHeader(title: string) {
+interface Iprops {
+    title : string
+}
+
+export default function CarouselHeader({title}: Iprops) {
+
     return (
         <div>
             <div> {title}</div>
