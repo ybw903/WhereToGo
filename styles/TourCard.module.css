@@ -1,0 +1,25 @@
+.tour__card {
+    width: 366px;
+    height: 30%;
+    border-radius: 10px;
+    background-color: #ffc0cb;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.tour__cardTitle {
+    padding: 10px;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.tour__cardContent {
+    padding: 10px 0px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.tour__card:hover {
+    cursor: pointer;
+}
