@@ -9,10 +9,10 @@ export default function Header() {
     }
 
     return(
-        <header>
+        <header className={styles.header}>
             <nav className={styles.navbar}>
                 <div className={styles.navbar__title}>
-                    <h1>여기저기로</h1>
+                    <a>여기저기로</a>
                 </div>
                 <ul className= {!isMenuOpen? styles.navbar__menu : `${styles.navbar__menu} ${styles.active}`}>
                     <li><a>여행지 둘러보기</a></li>

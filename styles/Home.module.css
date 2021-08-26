@@ -1,11 +1,11 @@
 .container {
-  min-height: 100vh;
+  min-height: calc(100vh - 85px);
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 85px);
 }
 
 .main {
@@ -15,17 +15,15 @@
   height: 100%;
   width: 100%;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+
 }
 
 .card__wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
 }
 
 .footer {

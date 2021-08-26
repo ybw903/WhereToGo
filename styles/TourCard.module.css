@@ -1,7 +1,8 @@
 .tour__card {
     width: 366px;
-    height: 30%;
+    height: 150px;
     border-radius: 10px;
+    box-shadow: 5px 5px 10px 5px #ccc;
     background-color: #ffc0cb;
     display: flex;
     flex-direction: column;
@@ -16,7 +17,7 @@
 
 .tour__cardContent {
     padding: 10px 0px;
-    text-align: center;
+    margin: auto;
     font-size: 14px;
 }
 
