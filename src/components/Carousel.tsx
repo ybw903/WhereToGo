@@ -12,7 +12,7 @@ export default function Carousel({imagesInfo, title}: iProps) {
     return(
         <div className={styles.carousel}>
             <CarouselHeader title={title}/>
-            <CarouselSlider imagesInfo={...imagesInfo}/>
+            <CarouselSlider imagesInfo={imagesInfo}/>
         </div>
     )   
 }

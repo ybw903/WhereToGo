@@ -6,4 +6,15 @@
     grid-row-gap: 7px;
     width: 100%;
     height: 40%;
+    text-align: center;
+}
+
+
+.calendar__header.holiday {
+    color: red;
+}
+
+.calendar__dateCell {
+    border-radius: 10px;
+
 }

@@ -35,8 +35,8 @@ export default function TourCalender() {
     }
     return(
         <div className={styles.tour_calendar}>
-                {days.map((day,idx) => <div key={idx}>{day}</div>)}
-                {getCalendarData().map((calendarData,idx) => <div key={idx}>{calendarData}</div>)}
+                {days.map((day,idx) => <div key={idx} className={day==='일'?`${styles.calendar__header} ${styles.holiday}`  :styles.calendar__header}>{day}</div>)}
+                {getCalendarData().map((calendarData,idx) => <div key={idx} className={styles.calendar__dateCell}>{calendarData}</div>)}
         </div>
     )
 }
