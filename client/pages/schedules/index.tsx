@@ -1,5 +1,5 @@
-import TourCalender from "../src/components/TourCalender";
-import styles from '../styles/Schedules.module.css';
+import TourCalender from "../../src/components/TourCalender"
+import styles from '../../styles/Schedules.module.css';
 export default function Schedules() {
     return (
         <div>
