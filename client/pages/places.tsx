@@ -1,4 +1,4 @@
-import Carousel from "../src/components/carousel";
+import Carousel from "../src/components/Carousel";
 import SearchInput from "../src/components/SearchInput";
 
 export default function Places() {
