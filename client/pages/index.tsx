@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
+import CreateSchedulesButton from '../src/components/CreateSchedulesButton'
 import TourCard from '../src/components/TourCard'
 import { TourData } from '../src/type'
 
@@ -25,13 +25,9 @@ const Home: NextPage = () => {
       </Head>
       <main className={styles.main}>
         <div className={styles.card__wrapper}>
-        {testData.map((tour,idx) => <TourCard key={idx} {...tour}></TourCard>)}
+          {testData.map((tour,idx) => <TourCard key={idx} {...tour}></TourCard>)}
         </div>
-        <div>
-          <Link href="/schedules/create">
-            <div>일정추가</div>
-          </Link>
-        </div>
+        <CreateSchedulesButton/>
       </main>
     </div>
   )
