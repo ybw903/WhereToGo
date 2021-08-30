@@ -1,0 +1,8 @@
+.schedules__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    padding: 10px 20px
+}

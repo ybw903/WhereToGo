@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import styles from '../../styles/CreateSchedulesButton.module.css'
 export default function CreateSchedulesButton() {
     return(
         <div>
             <Link href="/schedules/create">
-                <div>일정추가</div>
+                <div className={styles.create__scheduleButton}>+</div>
             </Link>
       </div>
     )

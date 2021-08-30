@@ -1,0 +1,16 @@
+.create__scheduleButton {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 5px #ccc;
+    background-color: #ffc0cb;
+    display: flex;
+    margin: 30px;
+    color: white;
+    font-weight: 600;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
