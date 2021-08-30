@@ -1,11 +1,8 @@
-import express, {Request, Response, NextFunction} from 'express';
+import express from 'express';
 
-const app = express();
-
-app.get('/', (request:Request, response:Response, next: NextFunction) => {
-  response.send('hello');
-});
-
-app.listen(5000,()=>{
-  console.log('start')
-})
+export class App {
+  public app;
+  constructor() {
+    this.app = express();
+  }
+}
