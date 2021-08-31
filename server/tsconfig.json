@@ -10,6 +10,7 @@
       "esModuleInterop":true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
+      "strictPropertyInitialization": false,
       "sourceMap": true
     },
     "include": ["src/**/*.ts"],
