@@ -10,6 +10,7 @@ export class App {
     this.app = express();
     this.setExpress();
     this.setDatabase();
+    this.setMiddlewares();
   }
 
   private setExpress():void {
@@ -31,5 +32,9 @@ export class App {
       console.log(error);
       throw error;
     }
+  }
+
+  private setMiddlewares(): void {
+    this.app.use(express.json());
   }
 }
