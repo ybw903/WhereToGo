@@ -17,4 +17,5 @@ export class TourScheduleQueryRepository {
             .where("tour_schedule.id = :id", { id: id })
             .getOne();
     }
+
 }

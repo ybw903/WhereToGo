@@ -21,9 +21,19 @@ export class TourScheduleDetail extends BaseTimeEntity {
     memo: string;
 
     @ManyToOne(type => TourSchedule, tourSchedule => tourSchedule.tourScheduleDetails, {onDelete:'CASCADE', createForeignKeyConstraints: false})
-    tourSchedule: TourSchedule;
+    tourSchedule: TourSchedule | null;
 
     constructor() {
         super();
+    }
+
+    static create(place: string, startTime: Date, endTime: Date, estimatedExpenses:number, memo: string) {
+        const tourScheduleDetail = new TourScheduleDetail();
+        tourScheduleDetail.place = place;
+        tourScheduleDetail.startTime = startTime;
+        tourScheduleDetail.endTime = endTime;
+        tourScheduleDetail.estimatedExpenses = estimatedExpenses;
+        tourScheduleDetail.memo = memo;
+        return tourScheduleDetail;
     }
 }

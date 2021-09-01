@@ -14,4 +14,11 @@ export class TourSchedule extends BaseTimeEntity {
     constructor() {
         super();
     }
+
+    static create(name: string, tourScheduleDetails: TourScheduleDetail[]) {
+        const tourSchedule = new TourSchedule();
+        tourSchedule.name = name;
+        tourSchedule.tourScheduleDetails = tourScheduleDetails;
+        return tourSchedule;
+    }
 }
