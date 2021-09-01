@@ -5,12 +5,12 @@ export abstract class BaseTimeEntity {
     @PrimaryColumn()
     id: number
 
-    @CreateDateColumn({type:"timestamptz"})
+    @CreateDateColumn({type:"timestamp"})
     createdAt: Date
 
-    @UpdateDateColumn({type:"timestamptz"})
+    @UpdateDateColumn({type:"timestamp"})
     updatedAt: Date
 
-    @Column({type:"timestamptz", nullable:true})
+    @Column({type:"timestamp", nullable:true})
     deletedAt?: Date | null;
 }

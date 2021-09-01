@@ -1,6 +1,8 @@
 import Container from "typedi";
 import { ConnectionOptions, createConnection, getConnectionManager, useContainer } from "typeorm";
 import {env} from './env';
+
+
 export async function createDatabaseConnection(): Promise<void> {
     const connectionOption: ConnectionOptions = {
         type: "mysql",
@@ -30,6 +32,7 @@ export async function createDatabaseConnection(): Promise<void> {
 
     useContainer(Container);
     if(!getConnectionManager().has("default")) {
+        console.log(connectionOption)
         await createConnection(connectionOption);
     }
 }
