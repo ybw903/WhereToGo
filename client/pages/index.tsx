@@ -12,8 +12,6 @@ const Home: NextPage = () => {
     {"title": "제목1", "content" : "내용1"},
     {"title": "제목2", "content" : "내용2"},
     {"title": "제목3", "content" : "내용3"},
-    {"title": "제목4", "content" : "내용4"},
-    {"title": "제목5", "content" : "내용5"}
   ]
 
   return (
@@ -25,9 +23,10 @@ const Home: NextPage = () => {
       </Head>
       <main className={styles.main}>
         <div className={styles.card__wrapper}>
+          <div className={styles.card__wrapperTitle}>여행 일정</div>
           {testData.map((tour,idx) => <TourCard key={idx} {...tour}></TourCard>)}
+          <CreateSchedulesButton/>
         </div>
-        <CreateSchedulesButton/>
       </main>
     </div>
   )

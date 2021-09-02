@@ -1,4 +1,4 @@
-.schedules__row {
+.scheduleForm {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -14,4 +14,8 @@
 .schedules__cell__m {
     width: 80px;
     text-align: center;
+}
+
+.input {
+    width: 60px;
 }

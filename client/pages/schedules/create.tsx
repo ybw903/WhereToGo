@@ -1,31 +1,38 @@
 import { useState } from 'react';
-import CreateSchedulesModal from '../../src/components/CreateSchedulesModal';
+import CreateScheduleForm from '../../src/components/CreateScheduleForm';
 import ScheduleRow from '../../src/components/ScheduleRow';
 import styles from '../../styles/CreateSchedules.module.css';
+
+interface scheduleForm {
+
+}
+
 export default function CreateSchedule() {
 
     const schedulesData = [{'id': 0, 'startTime':'04:00', 'endTime' : '06:00', 'fee' : 0, 'place':'여기', 'memo' : '메모'}]
 
-    const [modalOpen,  setModalOpen] = useState<boolean>(false);
+    const [scheduleForms, setScheduleForms] = useState<scheduleForm[]>([]);
 
-    const mdoalButtonClickHander = () => {
-        setModalOpen(!modalOpen);
+
+    const addScheduleForms = () => {
+        const newScheduleForm = {};
+        setScheduleForms([...scheduleForms, newScheduleForm]);
     }
 
     return(
         <div className={styles.create__Schedules}>
             <div className={styles.create__Schedues__header}>
-                <div>No.</div>
-                <div>여행시간</div>
-                <div>여행장소</div>
-                <div>예상여비</div>
-                <div>메모</div>
+                <div className={styles.create__Schedules__cell__s}>No.</div>
+                <div className={styles.create__Schedules__cell__m}>여행시간</div>
+                <div className={styles.create__Schedules__cell__m}>여행장소</div>
+                <div className={styles.create__Schedules__cell__m}>예상여비</div>
+                <div className={styles.create__Schedules__cell__s}>메모</div>
             </div>
-            {schedulesData.map(scheduleData => <ScheduleRow scheduleInfo={scheduleData}/>)}
-            <div onClick={mdoalButtonClickHander}>
+            {schedulesData.map(scheduleData => <ScheduleRow scheduleInfo={scheduleData} key={scheduleData.id}/>)}
+            {scheduleForms.map(scheduleForm => <CreateScheduleForm/>)}
+            <div onClick={addScheduleForms}>
                 일정추가
             </div>
-            <CreateSchedulesModal modalOpen={modalOpen} closeModal={mdoalButtonClickHander}/>
         </div>
     )
 }

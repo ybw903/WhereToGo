@@ -11,6 +11,15 @@
     justify-content: space-between;
     align-items: center;
     background-color: lightgray;
-    width: 50%;
     padding: 10px 20px
+}
+
+.create__Schedules__cell__s {
+    width: 60px;
+    text-align: center;
+}
+
+.create__Schedules__cell__m {
+    width: 80px;
+    text-align: center;
 }

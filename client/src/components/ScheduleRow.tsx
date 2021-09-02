@@ -7,11 +7,11 @@ interface Iprops {
 export default function ScheduleRow({scheduleInfo}: Iprops) {
     return (
         <div className={styles.schedules__row}>
-            <div>{scheduleInfo.id}</div>
-            <div>{scheduleInfo.startTime} - {scheduleInfo.endTime}</div>
-            <div>{scheduleInfo.place}</div>
-            <div>{scheduleInfo.fee}</div>
-            <div>{scheduleInfo.memo}</div>
+            <div className={styles.schedules__cell__s}>{scheduleInfo.id}</div>
+            <div className={styles.schedules__cell__m}>{scheduleInfo.startTime} - {scheduleInfo.endTime}</div>
+            <div className={styles.schedules__cell__m}>{scheduleInfo.place}</div>
+            <div className={styles.schedules__cell__m}>{scheduleInfo.fee}</div>
+            <div className={styles.schedules__cell__s}>{scheduleInfo.memo}</div>
         </div>
     )
 
