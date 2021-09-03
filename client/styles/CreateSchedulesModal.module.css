@@ -34,7 +34,9 @@
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
+    height: 630px;
     padding: 40px 20px;
+    overflow: auto;
 }
 
 .modal__form {
@@ -111,4 +113,8 @@
     cursor: pointer;
 
     margin-top: 30px;
+}
+
+.result__wrapper{
+    width: 95%;
 }

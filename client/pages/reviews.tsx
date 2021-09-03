@@ -7,8 +7,8 @@ export default function reviews() {
     return(
         <div>
             <SearchInput/>
-            {reviewItems.map(revieItem =>
-                    <div>
+            {reviewItems.map((revieItem,idx) =>
+                    <div key={idx}>
                         <div>
                             <img src={revieItem.imgUrl}></img>
                         </div>

@@ -1,0 +1,16 @@
+.searchResult {
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.searchReulstName {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.searchReulstAddress {
+    font-size: 12px;
+}

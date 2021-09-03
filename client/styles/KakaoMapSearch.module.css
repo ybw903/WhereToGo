@@ -1,0 +1,27 @@
+.searchPlacesFormWrapper {
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.searchPlacesForm {
+    width: 60%;
+    display: flex;
+}
+
+.searchPlacesFormInput {
+    height: 30px;
+    border: 2px solid black;
+}
+
+.searchPlaceFormButton {
+    height: 30px;
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    background: #166ff3;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

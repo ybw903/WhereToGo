@@ -29,7 +29,7 @@ export default function CreateSchedule() {
                 <div className={styles.create__Schedules__cell__s}>메모</div>
             </div>
             {schedulesData.map(scheduleData => <ScheduleRow scheduleInfo={scheduleData} key={scheduleData.id}/>)}
-            {scheduleForms.map(scheduleForm => <CreateScheduleForm/>)}
+            {scheduleForms.map((scheduleForm ,idx)=> <CreateScheduleForm key={idx}/>)}
             <div onClick={addScheduleForms}>
                 일정추가
             </div>

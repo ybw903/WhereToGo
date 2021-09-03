@@ -9,7 +9,7 @@ class MyDocument extends Document {
         <Head>
             <script
             type="text/javascript"
-            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoKey}`}
+            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoKey}&libraries=services`}
             />
         </Head>
         <body>
