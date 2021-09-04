@@ -14,3 +14,7 @@
 .searchReulstAddress {
     font-size: 12px;
 }
+
+.selected {
+    color: #166ff3;
+}

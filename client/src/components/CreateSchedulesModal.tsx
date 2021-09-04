@@ -12,7 +12,11 @@ type IProps =  {
 export default function CreateSchedulesModal ({modalOpen, closeModal}: IProps) {
 
     const [searchResults,setSearchResults] = useState<[]>([]);
-
+    const [selectedPlace, setSelectedPlace] = useState(null);
+    
+    const selectPlace = (place:any) => {
+        setSelectedPlace(place);
+    }
     return (
         <>
                 <div className={modalOpen?styles.modal__overlay:`${styles.modal__overlay} ${styles.no__display}`}></div>
@@ -24,9 +28,10 @@ export default function CreateSchedulesModal ({modalOpen, closeModal}: IProps) {
                                 <div className={styles.modal__form__input__header} onClick={closeModal}>X</div>
                             </div>
                             <KakaoMapSearch searchResults={searchResults} setSearchResults={setSearchResults}/>
-                            <KakaoMap searchResults={searchResults}/>
+                            {selectedPlace? <KakaoMap selectedPlace={selectedPlace}/>:''}
                             <div className={styles.result__wrapper}>
-                                {searchResults.map((searchResult,idx) => <KakaoMapSearchResult searchResult={searchResult} key={idx}/>)}
+                                {searchResults.map((searchResult,idx) =>
+                                 <KakaoMapSearchResult key={idx} searchResult={searchResult}  selectedPlace={selectedPlace} selectPlace={selectPlace}/>)}
                             </div>
                             <div className={styles.modal__form__input}>
                                 <input type="submit" className={styles.modal__form__submit__button} value="선택"></input>
