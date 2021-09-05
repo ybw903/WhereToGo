@@ -7,15 +7,20 @@ import KakaoMapSearchResult from './KakaoMapSearchResult';
 type IProps =  {
     modalOpen: boolean
     closeModal: ()=>void
+    setPlace: (place:any)=>void
 }
 
-export default function CreateSchedulesModal ({modalOpen, closeModal}: IProps) {
+export default function CreateSchedulesModal ({modalOpen, closeModal, setPlace}: IProps) {
 
     const [searchResults,setSearchResults] = useState<[]>([]);
     const [selectedPlace, setSelectedPlace] = useState(null);
     
     const selectPlace = (place:any) => {
         setSelectedPlace(place);
+    }
+    const buttonClickHandler =() => {
+        setPlace(selectedPlace);
+        closeModal();
     }
     return (
         <>
@@ -34,7 +39,7 @@ export default function CreateSchedulesModal ({modalOpen, closeModal}: IProps) {
                                  <KakaoMapSearchResult key={idx} searchResult={searchResult}  selectedPlace={selectedPlace} selectPlace={selectPlace}/>)}
                             </div>
                             <div className={styles.modal__form__input}>
-                                <input type="submit" className={styles.modal__form__submit__button} value="선택"></input>
+                                <input type="button" className={styles.modal__form__submit__button} value="선택" onClick={buttonClickHandler}></input>
                             </div>
                         </div>
                     </div>

@@ -12,7 +12,7 @@ export type ScheduleInfo = {
     id : number
     startTime: string
     endTime: string
-    place: string
-    fee: number
+    place: any
+    expense: number
     memo: string
 }
