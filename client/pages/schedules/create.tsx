@@ -2,23 +2,29 @@ import { useState } from 'react';
 import CreateScheduleForm from '../../src/components/CreateScheduleForm';
 import ScheduleRow from '../../src/components/ScheduleRow';
 import styles from '../../styles/CreateSchedules.module.css';
-
+import Link from 'next/link';
 interface scheduleForm {
 
 }
 
 export default function CreateSchedule() {
-    const [schedulesData, setScheduleData] = useState([{'id': 0, 'startTime':'04:00', 'endTime' : '06:00', 'expense' : 0, 'place':{'place_name':'여기'}, 'memo' : '메모'}])
+    const [schedulesData, setScheduleData] = useState<any[]>([])
     const [formOpen, setFormOpen] = useState<boolean>(false);
-
 
     const formOpenHandler = () => {
         setFormOpen(true);
     }
 
     const addScheduleHandler = (form:any) => {
+        console.log(form);
         setScheduleData([...schedulesData, form]);
         setFormOpen(false);
+    }
+
+    const deleteScheduleHandler = (idx:number) => {
+        const nextSchedulesData = [...schedulesData];
+        nextSchedulesData.splice(idx,1);
+        setScheduleData([...nextSchedulesData]);
     }
 
     return(
@@ -31,10 +37,11 @@ export default function CreateSchedule() {
                 <div className={styles.create__Schedules__cell__s}>메모</div>
                 <div className={styles.create__Schedules__cell__s}>변경</div>
             </div>
-            {schedulesData.map((scheduleData,idx) => <ScheduleRow idx={idx} scheduleInfo={scheduleData} key={scheduleData.id}/>)}
+            {schedulesData.map((scheduleData,idx) => <ScheduleRow  key={idx} idx={idx} scheduleInfo={scheduleData} deleteScheduleHandler={deleteScheduleHandler}/>)}
             {formOpen? <CreateScheduleForm addScheduleHandler={addScheduleHandler}/> : '' }
-            <div onClick={formOpenHandler}>
-                일정추가
+ 
+            <div className={styles.addButton} onClick={formOpenHandler}>
+                +
             </div>
         </div>
     )

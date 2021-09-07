@@ -13,7 +13,9 @@
     background-color: lightgray;
     width: 50%;
     min-width: 424px;
-    padding: 10px 20px
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .create__Schedules__cell__s {
@@ -24,4 +26,21 @@
 .create__Schedules__cell__m {
     width: 80px;
     text-align: center;
+}
+
+.addButton {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 5px #ccc;
+    background-color: #ffc0cb;
+    margin: 15px;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
 }

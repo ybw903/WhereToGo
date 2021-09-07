@@ -1,23 +1,32 @@
 .scheduleForm {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 50%;
     min-width: 424px;
-    padding: 10px 20px
+    padding: 20px 20px;
+    border-radius: 10px;
+    border: 2px solid black
 }
 
-.schedules__cell__s {
-    width: 60px;
-    text-align: center;
-}
-
-.schedules__cell__m {
-    width: 80px;
-    text-align: center;
+.inputWrapper {
+    padding: 10px;
 }
 
 .input {
-    width: 60px;
+    width: 180px;
+    height: 30px;
+    border: 2px solid black
+}
+
+.saveButton {
+    font-weight: 400;
+    padding: 5px;
+    font-size: 16px;
+    background: #166ff3;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
