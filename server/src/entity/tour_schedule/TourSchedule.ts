@@ -8,7 +8,7 @@ export class TourSchedule extends BaseTimeEntity {
     @Column()
     name: string;
 
-    @OneToMany(type=> TourScheduleDetail, tourScheduleDetail => tourScheduleDetail.tourSchedule, {lazy: true, cascade: true})
+    @OneToMany(type=> TourScheduleDetail, tourScheduleDetail => tourScheduleDetail.tourSchedule, {lazy: false, cascade: true})
     tourScheduleDetails: TourScheduleDetail[];
 
     constructor() {

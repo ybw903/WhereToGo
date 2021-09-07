@@ -6,8 +6,7 @@ import { TourSchedule } from "./TourSchedule";
 @Entity()
 export class TourScheduleDetail extends BaseTimeEntity {
 
-    @OneToOne(type => Place, place => place.id)
-    @JoinColumn()
+    @ManyToOne(type => Place, place => place.id ,{createForeignKeyConstraints: false})
     place: Place;
 
     @Column({type:"timestamp"})
@@ -17,7 +16,7 @@ export class TourScheduleDetail extends BaseTimeEntity {
     endTime: Date
 
     @Column()
-    estimatedExpenses: number
+    expense: number
 
     @Column()
     memo: string;
@@ -29,12 +28,12 @@ export class TourScheduleDetail extends BaseTimeEntity {
         super();
     }
 
-    static create(place: Place, startTime: Date, endTime: Date, estimatedExpenses:number, memo: string) {
+    static create(place: Place, startTime: Date, endTime: Date, expense:number, memo: string) {
         const tourScheduleDetail = new TourScheduleDetail();
         tourScheduleDetail.place = place;
         tourScheduleDetail.startTime = startTime;
         tourScheduleDetail.endTime = endTime;
-        tourScheduleDetail.estimatedExpenses = estimatedExpenses;
+        tourScheduleDetail.expense = expense;
         tourScheduleDetail.memo = memo;
         return tourScheduleDetail;
     }

@@ -20,7 +20,7 @@ export class TourScheduleCreateDto {
         return TourSchedule.create(
             this.name,
             this.tourScheduleDetails.map(tourScheduleDetail => TourScheduleDetailCreateDto.create(tourScheduleDetail.place,tourScheduleDetail.startTime,
-                 tourScheduleDetail.endTime, tourScheduleDetail.estimatedExpenses, tourScheduleDetail.memo)).map(tourScheduleDetailDto => tourScheduleDetailDto.toEntity())
+                 tourScheduleDetail.endTime, tourScheduleDetail.expense, tourScheduleDetail.memo)).map(tourScheduleDetailDto => tourScheduleDetailDto.toEntity())
         )
     }
 }
