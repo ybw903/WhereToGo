@@ -1,8 +1,9 @@
 import { TourSchedule } from "../../../entity/tour_schedule/TourSchedule";
 import { TourScheduleDetail } from "../../../entity/tour_schedule/TourScheduleDetail";
+import { PlaceCreateDto } from "./PlaceCreateDto";
 
 export class TourScheduleDetailCreateDto {
-    place: string;
+    place: PlaceCreateDto;
     startTime: Date;
     endTime: Date;
     estimatedExpenses: number;
@@ -11,7 +12,7 @@ export class TourScheduleDetailCreateDto {
     constructor() {
     }
 
-    static create(place: string, startTime: Date, endTime:Date, estimatedExpenses: number, memo: string ) {
+    static create(place: PlaceCreateDto, startTime: Date, endTime:Date, estimatedExpenses: number, memo: string ) {
         let dto = new TourScheduleDetailCreateDto();
         dto.place = place;
         dto.startTime = startTime;
@@ -23,7 +24,7 @@ export class TourScheduleDetailCreateDto {
 
     public toEntity():TourScheduleDetail {
         return TourScheduleDetail.create(
-            this.place,
+            this.place.toEntity(),
             this.startTime,
             this.endTime,
             this.estimatedExpenses,

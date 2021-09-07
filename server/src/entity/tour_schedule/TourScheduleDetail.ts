@@ -1,12 +1,14 @@
-import { Column, Entity, ManyToOne } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from "typeorm";
 import { BaseTimeEntity } from "../BaseTimeEntity";
+import { Place } from "../place/Place";
 import { TourSchedule } from "./TourSchedule";
 
 @Entity()
 export class TourScheduleDetail extends BaseTimeEntity {
 
-    @Column()
-    place: string;
+    @OneToOne(type => Place, place => place.id)
+    @JoinColumn()
+    place: Place;
 
     @Column({type:"timestamp"})
     startTime: Date
@@ -27,7 +29,7 @@ export class TourScheduleDetail extends BaseTimeEntity {
         super();
     }
 
-    static create(place: string, startTime: Date, endTime: Date, estimatedExpenses:number, memo: string) {
+    static create(place: Place, startTime: Date, endTime: Date, estimatedExpenses:number, memo: string) {
         const tourScheduleDetail = new TourScheduleDetail();
         tourScheduleDetail.place = place;
         tourScheduleDetail.startTime = startTime;
