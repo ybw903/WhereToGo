@@ -10,6 +10,13 @@ export class TourScheduleQueryRepository {
             .getMany();
     }
 
+    findAllWithDetail() {
+        return createQueryBuilder("tour_schedule")
+            .leftJoinAndSelect("tour_schedule.tour_schedule_detail","tour_schedule_detail")
+            .getMany();
+    }
+
+
     findOneById(id: number) {
         return createQueryBuilder()
             .select("tour_schedule")

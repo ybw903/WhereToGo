@@ -17,6 +17,9 @@ export class TourScheduleService {
         return await this.tourScheduleQueryRepository.findAll();
     }
 
+    async findAllWithDetail(): Promise<unknown[]> {
+        return await this.tourScheduleQueryRepository.findAllWithDetail();
+    }
     @Transaction()
     async create(
         tourScheduleCreateDto: TourScheduleCreateDto,
@@ -26,12 +29,11 @@ export class TourScheduleService {
         tourSchedule.tourScheduleDetails.forEach(async(tourSchedule) => {
             const place = tourSchedule.place;
             const plaecGetByRepository = await this.placeRepository.findOneById(place.id);
-            console.log(plaecGetByRepository);
             if(plaecGetByRepository === undefined) {
                 this.placeRepository.save(place);
             }
         });
-        
+
         const savedTourSchedule = await manager?.save(tourSchedule);
                                     
         return Number(savedTourSchedule?.id);
