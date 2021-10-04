@@ -1,16 +1,24 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import Head from 'next/head'
 import CreateSchedulesButton from '../src/components/CreateSchedulesButton'
 import TourCard from '../src/components/TourCard'
-import { TourData } from '../src/type'
+import { TourData, TourSchedule } from '../src/type'
 
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
 
-  const testData: TourData[] = [
+export const getServerSideProps = async () => {
+  const res = await fetch('http://localhost:4000/api/tour_schedule/');
+  const data: TourSchedule[] = await res.json();
+  console.log(data);
+  return {
+    props: {
+      data,
+    },
+  }
+}
 
-  ]
+function Home ({data}: InferGetServerSidePropsType<typeof getServerSideProps>)  {
 
   return (
     <div className={styles.container}>
@@ -22,11 +30,12 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <div className={styles.card__wrapper}>
           <div className={styles.card__wrapperTitle}>여행 일정</div>
-          {testData.map((tour,idx) => <TourCard key={idx} {...tour}></TourCard>)}
+          {data.map((tour,idx) => <TourCard key={idx} {...tour}></TourCard>)}
           <CreateSchedulesButton/>
         </div>
       </main>
     </div>
   )
 }
+
 export default Home
