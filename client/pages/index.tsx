@@ -6,7 +6,6 @@ import { TourData, TourSchedule } from '../src/type'
 
 import styles from '../styles/Home.module.css'
 
-
 export const getServerSideProps = async () => {
   const res = await fetch('http://localhost:4000/api/tour_schedule/');
   const data: TourSchedule[] = await res.json();

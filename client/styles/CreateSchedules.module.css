@@ -5,6 +5,24 @@
     align-items: center;
 }
 
+.create__Schedues__title_header {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    min-width: 424px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 18px;
+    justify-content: space-between;
+}
+
+.create__Schedues__Button {
+    background-color: #6495ed;
+    padding: 5px;
+    color: #ffffff;
+    border-radius: 5%;
+}
+
 .create__Schedues__header {
     display: flex;
     flex-direction: row;
