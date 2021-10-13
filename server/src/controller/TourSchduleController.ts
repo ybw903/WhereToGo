@@ -1,4 +1,4 @@
-import { Body, Get, HttpCode, JsonController, Post, Res } from "routing-controllers";
+import { Body, Get, HttpCode, JsonController, Param, Patch, Post, Res } from "routing-controllers";
 import { Response } from "express";
 import { TourScheduleService } from "../service/tour_schedule/TourScheduleService";
 import { TourScheduleCreateDto } from "../service/tour_schedule/dto/TourScheduleCreateDto";
@@ -33,6 +33,20 @@ export class TourScheduleController {
     ) {
         try {
             return await this.tourScheduleService.create(createDto, undefined);
+        } catch(e) {
+            console.log(e);
+
+        }
+    }
+
+    @HttpCode(200)
+    @Patch("/:id/update")
+    public async update(
+        @Param("id") id : number,
+        @Res() res: Response
+    ) {
+        try {
+
         } catch(e) {
             console.log(e);
 

@@ -1,9 +1,9 @@
-import { ScheduleInfo } from "../type";
+import { TourScheduleDetail } from "../type";
 import styles from '../../styles/ScheduleRow.module.css';
 
 interface Iprops {
     idx: number
-    scheduleInfo: ScheduleInfo
+    scheduleInfo: TourScheduleDetail
     deleteScheduleHandler: (idx:number) => void
 }
 export default function ScheduleRow({idx,scheduleInfo,deleteScheduleHandler}: Iprops) {

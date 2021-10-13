@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import CreateScheduleForm from '../../src/components/CreateScheduleForm';
 import ScheduleRow from '../../src/components/ScheduleRow';
-import { TourSchedule } from '../../src/type';
+import { TourSchedule, TourScheduleDetail } from '../../src/type';
 import styles from '../../styles/CreateSchedules.module.css';
 
 export default function CreateSchedule() {
@@ -13,8 +13,14 @@ export default function CreateSchedule() {
         setFormOpen(true);
     }
 
-    const addScheduleHandler = (form:any) => {
-        setScheduleData([...schedulesData, form]);
+    const addScheduleHandler = (scheduleDetail:any) => {
+        let nextTourScheduleDetails: TourScheduleDetail[];
+        if(tour?.tourScheduleDetails)
+            nextTourScheduleDetails = [...tour?.tourScheduleDetails] as TourScheduleDetail[];
+        else
+            nextTourScheduleDetails = [] as TourScheduleDetail[];
+        nextTourScheduleDetails.push(scheduleDetail);
+        setTour({name: name, tourScheduleDetails:nextTourScheduleDetails});
         setFormOpen(false);
     }
 
@@ -25,11 +31,10 @@ export default function CreateSchedule() {
     }
 
     const submitTour = async () => {
-        setTour({...tour, name, tourScheduleDetails: schedulesData});
         const requestTour = async () => {
             const response = await fetch('/api/schedules',{
                 method: 'POST',
-                body: JSON.stringify({tour}),
+                body: JSON.stringify({...tour}),
                 headers: {
                     'Content-Type' : 'application/json'
                 }
@@ -52,7 +57,7 @@ export default function CreateSchedule() {
                 <div className={styles.create__Schedules__cell__s}>메모</div>
                 <div className={styles.create__Schedules__cell__s}>변경</div>
             </div>
-            {schedulesData.map((scheduleData,idx) => <ScheduleRow  key={idx} idx={idx} scheduleInfo={scheduleData} deleteScheduleHandler={deleteScheduleHandler}/>)}
+            {tour?.tourScheduleDetails.map((scheduleData,idx) => <ScheduleRow  key={idx} idx={idx} scheduleInfo={scheduleData} deleteScheduleHandler={deleteScheduleHandler}/>)}
             {formOpen? <CreateScheduleForm addScheduleHandler={addScheduleHandler}/> : '' }
  
             <div className={styles.addButton} onClick={formOpenHandler}>
