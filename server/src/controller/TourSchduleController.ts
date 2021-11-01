@@ -2,11 +2,12 @@ import { Body, Get, HttpCode, JsonController, Param, Patch, Post, Res } from "ro
 import { Response } from "express";
 import { TourScheduleService } from "../service/tour_schedule/TourScheduleService";
 import { TourScheduleCreateDto } from "../service/tour_schedule/dto/TourScheduleCreateDto";
+import { TourScheduleDetailService } from "../service/tour_schedule/TourScheduleDetailService";
 
 @JsonController("/tour_schedule")
 export class TourScheduleController {
 
-    constructor(private tourScheduleService: TourScheduleService) {
+    constructor(private tourScheduleService: TourScheduleService, private tourScheduleDetailService: TourScheduleDetailService) {
     }
 
     @HttpCode(200)
@@ -14,6 +15,19 @@ export class TourScheduleController {
     public async get(@Res() res: Response) {
         try {
             return await this.tourScheduleService.findAll();
+        } catch(error) {
+            console.log(error);
+        }
+    }
+
+    @HttpCode(200)
+    @Get("/detail/:id")
+    public async getDetail(
+        @Param("id") id : number,
+        @Res() res: Response
+    ) {
+        try {
+            return await this.tourScheduleDetailService.findById(id);
         } catch(error) {
             console.log(error);
         }

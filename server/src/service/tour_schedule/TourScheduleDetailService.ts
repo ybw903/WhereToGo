@@ -13,5 +13,7 @@ export class TourScheduleDetailService {
         return await this.tourScheduleDetailRepository.findAll();
     }
 
-    
+    async findById(id: number): Promise<TourScheduleDetail|undefined> {
+        return await this.tourScheduleDetailRepository.findOneById(id);
+    }
 }

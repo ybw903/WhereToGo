@@ -18,7 +18,6 @@ export const getServerSideProps = async () => {
 }
 
 function Home ({data}: InferGetServerSidePropsType<typeof getServerSideProps>)  {
-
   return (
     <div className={styles.container}>
       <Head>
