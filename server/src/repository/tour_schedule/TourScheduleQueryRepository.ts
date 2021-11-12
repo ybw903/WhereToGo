@@ -12,7 +12,7 @@ export class TourScheduleQueryRepository {
 
     findAllWithDetail() {
         return createQueryBuilder("tour_schedule")
-            .leftJoinAndSelect("tour_schedule.tour_schedule_detail","tour_schedule_detail")
+            .leftJoinAndSelect("tour_schedule.tourScheduleDetail","tour_schedule_detail")
             .getMany();
     }
 

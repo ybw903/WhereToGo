@@ -21,13 +21,13 @@ export class TourScheduleController {
     }
 
     @HttpCode(200)
-    @Get("/detail/:id")
+    @Get("/details/:id")
     public async getDetail(
         @Param("id") id : number,
         @Res() res: Response
     ) {
         try {
-            return await this.tourScheduleDetailService.findById(id);
+            return await this.tourScheduleDetailService.findByTourScheduleId(id);
         } catch(error) {
             console.log(error);
         }

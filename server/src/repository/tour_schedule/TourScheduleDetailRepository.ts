@@ -1,4 +1,4 @@
-import { createQueryBuilder, EntityRepository } from "typeorm";
+import { createQueryBuilder, EntityRepository, getRepository } from "typeorm";
 import { TourScheduleDetail } from "../../entity/tour_schedule/TourScheduleDetail";
 
 @EntityRepository(TourScheduleDetail)
@@ -18,7 +18,11 @@ export class TourScheduleDetailRepository {
             .getOne();
     }
 
-    createScheduleDetail() {
-        
+
+    findManyByTourScheduleId(tourScheduleId: number) {
+        return getRepository("tour_schedule_detail").createQueryBuilder("tour_schedule_detail")
+            .innerJoinAndSelect("tour_schedule_detail.tourSchedule","tourSchedule" )
+            .where("tourSchedule.id = :id", {id: tourScheduleId})
+            .getMany();
     }
 }

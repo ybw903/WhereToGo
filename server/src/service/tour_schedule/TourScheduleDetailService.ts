@@ -16,4 +16,8 @@ export class TourScheduleDetailService {
     async findById(id: number): Promise<TourScheduleDetail|undefined> {
         return await this.tourScheduleDetailRepository.findOneById(id);
     }
+
+    async findByTourScheduleId(tourScheduleId: number): Promise<any> {
+        return await this.tourScheduleDetailRepository.findManyByTourScheduleId(tourScheduleId);
+    }
 }
