@@ -20,7 +20,7 @@ export default function CreateSchedule() {
         else
             nextTourScheduleDetails = [] as TourScheduleDetail[];
         nextTourScheduleDetails.push(scheduleDetail);
-        setTour({name: name, tourScheduleDetails:nextTourScheduleDetails});
+        setTour({id: undefined, name: name, tourScheduleDetails:nextTourScheduleDetails});
         setFormOpen(false);
     }
 

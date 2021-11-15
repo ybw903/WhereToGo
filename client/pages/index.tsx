@@ -28,7 +28,9 @@ function Home ({data}: InferGetServerSidePropsType<typeof getServerSideProps>)  
       <main className={styles.main}>
         <div className={styles.card__wrapper}>
           <div className={styles.card__wrapperTitle}>여행 일정</div>
-          {data.map((tour,idx) => <TourCard key={idx} {...tour}></TourCard>)}
+          {data.map((tour,idx) =>
+            <TourCard  {...tour}></TourCard>
+           )}
           <CreateSchedulesButton/>
         </div>
       </main>

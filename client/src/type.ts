@@ -18,6 +18,7 @@ export type ScheduleInfo = {
 }
 
 export type TourSchedule = {
+    id: number | undefined
     name: string
     tourScheduleDetails: TourScheduleDetail[];
 }
